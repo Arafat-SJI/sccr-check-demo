@@ -1,0 +1,14 @@
+---
+description: Horologe Genève storefront conventions for Cursor agents
+alwaysApply: true
+---
+
+# Horologe Genève — agent rules
+
+- Use **JavaScript only** (no TypeScript) unless the user explicitly asks otherwise.
+- Prefer **App Router** pages under `app/` and shared chrome in `components/`.
+- Preserve Stitch design tokens and Tailwind theme classes from `app/globals.css` (`surface`, `on-surface`, `secondary`, spacing tokens, etc.).
+- Keep brand pages visually aligned with Stitch screens; reuse `/public/stitch` assets.
+- Link auth flows: `/login` ↔ `/register`; product detail at `/product`.
+- Do not commit secrets (API keys in local MCP config stay outside the repo).
+- Prefer small, focused diffs; avoid drive-by refactors.
