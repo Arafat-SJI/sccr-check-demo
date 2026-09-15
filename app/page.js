@@ -1,7 +1,8 @@
-﻿ import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FAQSection from "@/components/FAQSection";
 
 const ASSETS = {
   heroWatch: "/stitch/hero-watch.jpg",
@@ -189,9 +190,7 @@ function Hero() {
                 <div className="space-y-1 text-on-surface-variant font-body-sm text-[12px]">
                   <p className="flex justify-between gap-4">
                     <span>Material</span>
-                    <span className="font-medium text-on-surface">
-                      Titanium Grade 5
-                    </span>
+                    <span className="font-medium text-on-surface">Titanium Grade 5</span>
                   </p>
                   <p className="flex justify-between gap-4">
                     <span>Diameter</span>
@@ -199,16 +198,12 @@ function Hero() {
                   </p>
                   <p className="flex justify-between gap-4">
                     <span>Regulator</span>
-                    <span className="font-medium text-on-surface">
-                      Free-Sprung Gyromax
-                    </span>
+                    <span className="font-medium text-on-surface">Free-Sprung Gyromax</span>
                   </p>
                 </div>
               </div>
               <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface shadow-sm z-10">
-                <span className="material-symbols-outlined text-[20px] text-secondary">
-                  verified
-                </span>
+                <span className="material-symbols-outlined text-[20px] text-secondary">verified</span>
               </div>
             </Link>
           </div>
@@ -234,7 +229,7 @@ function PressBar() {
               Haute Time
             </span>
             <span className="font-title-md text-[17px] tracking-[0.18em] uppercase font-light hover:text-on-surface transition-colors cursor-default">
-              Financial Times{" "}
+              Financial Times {" "}
               <span className="text-xs font-normal">How To Spend It</span>
             </span>
             <span className="font-headline-sm text-[19px] tracking-widest uppercase hover:text-on-surface transition-colors cursor-default">
@@ -336,9 +331,7 @@ function Collection() {
             href="/product"
           >
             <span>Explore All 14 Manufacture References</span>
-            <span className="material-symbols-outlined text-[16px]">
-              north_east
-            </span>
+            <span className="material-symbols-outlined text-[16px]">north_east</span>
           </Link>
         </div>
       </div>
@@ -362,9 +355,7 @@ function Craftsmanship() {
               />
             </div>
             <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-primary text-on-primary p-6 shadow-xl z-10">
-              <span className="font-headline-xl text-[44px] leading-none text-secondary-fixed block mb-1">
-                58h
-              </span>
+              <span className="font-headline-xl text-[44px] leading-none text-secondary-fixed block mb-1">58h</span>
               <p className="font-body-sm text-[12px] text-inverse-primary leading-relaxed">
                 Required hand-chamfering and anglage per Calibre 104 movement
                 before assembly.
@@ -376,9 +367,7 @@ function Craftsmanship() {
             <span className="font-label-caps text-label-caps uppercase tracking-[0.16em] text-secondary block mb-3">
               Manufacture Purity
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">
-              The Intolerance of Imperfection.
-            </h2>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">The Intolerance of Imperfection.</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed mb-8">
               Every Horologe GenÃ¨ve escapement is shaped by hand using
               traditional boxwood laps and gentian wood pegs. We believe true
@@ -391,16 +380,10 @@ function Craftsmanship() {
                   key={pillar.title}
                   className="p-4 bg-surface flex items-start gap-4 shadow-sm"
                 >
-                  <span className="material-symbols-outlined text-secondary text-[24px] mt-0.5">
-                    {pillar.icon}
-                  </span>
+                  <span className="material-symbols-outlined text-secondary text-[24px] mt-0.5">{pillar.icon}</span>
                   <div>
-                    <h4 className="font-title-md text-title-md text-on-surface mb-1">
-                      {pillar.title}
-                    </h4>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
-                      {pillar.body}
-                    </p>
+                    <h4 className="font-title-md text-title-md text-on-surface mb-1">{pillar.title}</h4>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">{pillar.body}</p>
                   </div>
                 </div>
               ))}
@@ -423,16 +406,10 @@ function Services() {
               className="p-6 bg-surface-container-lowest flex flex-col items-start shadow-sm"
             >
               <div className="w-12 h-12 bg-surface-container flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-on-surface text-[22px]">
-                  {service.icon}
-                </span>
+                <span className="material-symbols-outlined text-on-surface text-[22px]">{service.icon}</span>
               </div>
-              <h3 className="font-headline-sm text-[18px] text-on-surface mb-2">
-                {service.title}
-              </h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">
-                {service.body}
-              </p>
+              <h3 className="font-headline-sm text-[18px] text-on-surface mb-2">{service.title}</h3>
+              <p className="font-body-sm text-body-sm text-on-surface-variant">{service.body}</p>
             </div>
           ))}
         </div>
@@ -450,17 +427,9 @@ function Concierge() {
       <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
         <div className="p-8 md:p-14 bg-surface-container flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">
           <div className="max-w-xl">
-            <span className="font-label-caps text-label-caps uppercase tracking-[0.18em] text-secondary block mb-2">
-              Private Consultation
-            </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">
-              Commission a Unique Piece
-            </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Speak directly with our Master Horologist regarding bespoke
-              hand-engraved casebacks, custom dial enameling, and personalized
-              movement bridge monograms.
-            </p>
+            <span className="font-label-caps text-label-caps uppercase tracking-[0.18em] text-secondary block mb-2">Private Consultation</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Commission a Unique Piece</h2>
+            <p className="font-body-md text-body-md text-on-surface-variant">Speak directly with our Master Horologist regarding bespoke hand-engraved casebacks, custom dial enameling, and personalized movement bridge monograms.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
             <Link
@@ -494,6 +463,7 @@ export default function Home() {
           <Craftsmanship />
           <Services />
           <Concierge />
+          <FAQSection />
         </div>
       </main>
       <Footer />
