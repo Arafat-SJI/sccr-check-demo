@@ -1,147 +1,500 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import FAQSection from '../components/FAQSection/FAQSection';
+﻿ import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const ASSETS = {
+  heroWatch: "/stitch/hero-watch.jpg",
+  watchAtelier: "/stitch/watch-atelier.jpg",
+  watchChrono: "/stitch/watch-chrono.jpg",
+  watchPerpetual: "/stitch/watch-perpetual.jpg",
+  craftsmanship: "/stitch/craftsmanship.jpg",
+};
+
+const TIMEPIECES = [
+  {
+    href: "/product",
+    image: ASSETS.watchAtelier,
+    alt: "Studio catalog photograph of Atelier Automatic 38 luxury timepiece with a refined slate grey sunburst dial, applied white gold hour markers, polished bevelled lugs, and genuine black alligator strap on off-white pedestal.",
+    badge: "Series I",
+    badgeClass: "text-on-surface",
+    title: "Atelier Automatic 38",
+    price: "$6,400",
+    description:
+      "Slate Grey Sunburst Dial Â· Anti-Reflective Sapphire Caseback Â· Calibre 104-A",
+    caseInfo: "Case: 38mm Stainless 904L",
+    status: "Available",
+    statusClass: "text-secondary font-semibold",
+  },
+  {
+    href: "/product",
+    image: ASSETS.watchChrono,
+    alt: "Editorial product shot of Chronographe Chronometer 41 featuring brushed solid 950 platinum case, midnight black lacquered dial with dual silver sub-registers, and sapphire exhibition back, warm rim lighting.",
+    badge: "Numbered / 50",
+    badgeClass: "text-secondary",
+    title: "Chronographe Chronometer 41",
+    price: "$12,800",
+    description:
+      "Brushed 950 Platinum & Midnight Black Lacquer Â· Column-Wheel Actuation",
+    caseInfo: "Case: 41mm Platinum",
+    status: "Low Allocation",
+    statusClass: "text-secondary font-semibold",
+  },
+  {
+    href: "/product",
+    image: ASSETS.watchPerpetual,
+    alt: "Macro photo of high-complication Perpetual Calendar luxury dress watch in warm 18k rose gold with genuine grand feu ivory enamel dial, moonphase display in lapis lazuli, hand-stitched honey brown strap.",
+    badge: "Grand Complication",
+    badgeClass: "text-on-surface",
+    title: "Minimalist Perpetual Calendar",
+    price: "$18,500",
+    description:
+      "18k Rose Gold & Grand Feu Ivory Enamel Â· Astronomical Moonphase Aperture",
+    caseInfo: "Case: 39.5mm Rose Gold",
+    status: "By Commission",
+    statusClass: "text-on-surface-variant",
+  },
+];
+
+const PILLARS = [
+  {
+    icon: "tune",
+    title: "Free-Sprung Gyromax Balance",
+    body: "Eliminates regulator friction to guarantee poise stability through shock and temperature variation.",
+  },
+  {
+    icon: "stream",
+    title: "Geneva Stripes (CÃ´tes de GenÃ¨ve)",
+    body: "Parallel micro-crests machined at 0.05-degree inclinations to reflect light with liquid-like cohesion.",
+  },
+  {
+    icon: "diamond",
+    title: "Hand-Bevelled Internal Angles",
+    body: "Sharp internal junctures chamfered by manual file, a hallmark unattainable by five-axis CNC automation.",
+  },
+];
+
+const SERVICES = [
+  {
+    icon: "workspace_premium",
+    title: "COSC Chronometer",
+    body: "Official Swiss Chronometer Testing Bureau certification accompanying every Calibre dispatch.",
+  },
+  {
+    icon: "flight_takeoff",
+    title: "Insured Global Courier",
+    body: "Armored delivery with dedicated liaison handover direct from our Geneva vaults to your residence.",
+  },
+  {
+    icon: "inventory_2",
+    title: "Bespoke Walnut Case",
+    body: "Turned Swiss walnut presentation box, bespoke calfskin travel case, and registered leather archive ledger.",
+  },
+  {
+    icon: "published_with_changes",
+    title: "Lifetime Preservation",
+    body: "Guaranteed restoration and movement parts availability preserved in our archives in perpetuity.",
+  },
+];
+
+function Hero() {
+  return (
+    <section className="relative w-full bg-surface-container-low overflow-hidden pb-space-xl">
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop pt-12 md:pt-16 lg:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+          <div className="lg:col-span-6 flex flex-col items-start z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-surface mb-6 shadow-sm rounded">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+              <span className="font-label-caps text-label-caps uppercase tracking-[0.14em] text-on-surface-variant">
+                Geneva Manufacture NÂ° 1894
+              </span>
+            </div>
+            <h1 className="font-headline-xl text-headline-xl max-md:text-headline-xl-mobile text-on-surface mb-6 tracking-tight leading-[1.08]">
+              The Art of <br />
+              <span className="italic font-normal">Measured</span> Time.
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 font-light leading-relaxed">
+              Hand-assembled in Geneva. Engineered for enduring generations with
+              bespoke Calibre 104 manual-wind movements and architectural
+              chronometric purity.
+            </p>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto">
+              <a
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.14em] transition-colors duration-200 hover:bg-secondary shadow-sm"
+                href="#curated-collection"
+              >
+                Explore The 2025 Collection
+              </a>
+              <Link
+                className="inline-flex items-center justify-center gap-2 px-4 py-4 text-on-surface hover:text-secondary font-label-caps text-label-caps uppercase tracking-[0.14em] transition-colors group"
+                href="/product"
+              >
+                <span>Book Atelier Appointment</span>
+                <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </Link>
+            </div>
+
+            <div className="mt-14 pt-8 w-full max-w-md flex items-center justify-between bg-surface p-5 rounded-none shadow-sm">
+              <div>
+                <span className="block font-label-caps text-label-caps text-outline uppercase tracking-[0.14em]">
+                  Calibre Frequency
+                </span>
+                <span className="font-title-md text-title-md text-on-surface font-semibold">
+                  28,800 vph (4 Hz)
+                </span>
+              </div>
+              <div className="h-8 w-px bg-surface-container-high" />
+              <div>
+                <span className="block font-label-caps text-label-caps text-outline uppercase tracking-[0.14em]">
+                  Power Reserve
+                </span>
+                <span className="font-title-md text-title-md text-on-surface font-semibold">
+                  72 Hours Double Barrel
+                </span>
+              </div>
+              <div className="h-8 w-px bg-surface-container-high" />
+              <div>
+                <span className="block font-label-caps text-label-caps text-outline uppercase tracking-[0.14em]">
+                  Chronometer
+                </span>
+                <span className="font-title-md text-title-md text-secondary font-semibold">
+                  COSC Validated
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 relative mt-10 lg:mt-0 flex justify-center">
+            <Link
+              href="/product"
+              className="relative w-full max-w-[560px] aspect-square flex items-center justify-center bg-surface-container-lowest shadow-md"
+            >
+              <Image
+                src={ASSETS.heroWatch}
+                alt="Editorial close-up macro studio photograph of an ultra-luxury Swiss titanium chronograph wristwatch"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 560px"
+                priority
+              />
+              <div className="absolute bottom-6 left-6 bg-surface/95 backdrop-blur-md p-5 shadow-sm max-w-[260px] z-10">
+                <span className="font-label-caps text-[10px] uppercase text-secondary tracking-[0.18em] block mb-1">
+                  Flagship Masterpiece
+                </span>
+                <h3 className="font-headline-sm text-[19px] text-on-surface mb-2 leading-snug">
+                  Chronographe Monopoussoir NÂ° 04
+                </h3>
+                <div className="space-y-1 text-on-surface-variant font-body-sm text-[12px]">
+                  <p className="flex justify-between gap-4">
+                    <span>Material</span>
+                    <span className="font-medium text-on-surface">
+                      Titanium Grade 5
+                    </span>
+                  </p>
+                  <p className="flex justify-between gap-4">
+                    <span>Diameter</span>
+                    <span className="font-medium text-on-surface">40.0 mm</span>
+                  </p>
+                  <p className="flex justify-between gap-4">
+                    <span>Regulator</span>
+                    <span className="font-medium text-on-surface">
+                      Free-Sprung Gyromax
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface shadow-sm z-10">
+                <span className="material-symbols-outlined text-[20px] text-secondary">
+                  verified
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PressBar() {
+  return (
+    <section className="w-full bg-surface-container py-8 shadow-inner">
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
+        <div className="flex flex-wrap items-center justify-between gap-6 md:gap-12">
+          <span className="font-label-caps text-label-caps uppercase tracking-[0.2em] text-outline">
+            Recognised In Critical Horology
+          </span>
+          <div className="flex flex-wrap items-center gap-8 md:gap-14 text-on-surface-variant">
+            <span className="font-headline-sm text-[20px] tracking-wider uppercase font-normal hover:text-on-surface transition-colors cursor-default">
+              HODINKEE
+            </span>
+            <span className="font-headline-sm text-[20px] tracking-widest uppercase italic font-serif hover:text-on-surface transition-colors cursor-default">
+              Haute Time
+            </span>
+            <span className="font-title-md text-[17px] tracking-[0.18em] uppercase font-light hover:text-on-surface transition-colors cursor-default">
+              Financial Times{" "}
+              <span className="text-xs font-normal">How To Spend It</span>
+            </span>
+            <span className="font-headline-sm text-[19px] tracking-widest uppercase hover:text-on-surface transition-colors cursor-default">
+              The Rake
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Collection() {
+  return (
+    <section
+      className="w-full bg-background py-space-xl"
+      id="curated-collection"
+    >
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span className="font-label-caps text-label-caps uppercase tracking-[0.16em] text-secondary block mb-2">
+              Curated Geneva Catalog
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface">
+              Signature Timepieces
+            </h2>
+          </div>
+          <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
+            Strictly limited production runs of under 100 iterations worldwide.
+            Each individual reference is numbered and catalogued in our
+            historical vault.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop">
+          {TIMEPIECES.map((piece) => (
+            <Link
+              key={piece.title}
+              href={piece.href}
+              className="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden bg-surface-container-low flex items-center justify-center">
+                <Image
+                  src={piece.image}
+                  alt={piece.alt}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-4 left-4 z-10">
+                  <span
+                    className={`px-2.5 py-1 bg-surface/90 backdrop-blur-sm font-label-caps text-[10px] uppercase tracking-[0.14em] ${piece.badgeClass}`}
+                  >
+                    {piece.badge}
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-surface/90 via-surface/60 to-transparent flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <span className="px-4 py-2.5 bg-primary text-on-primary font-label-caps text-[11px] uppercase tracking-[0.12em]">
+                    Quick View
+                  </span>
+                  <span className="px-4 py-2.5 bg-surface text-on-surface font-label-caps text-[11px] uppercase tracking-[0.12em] shadow-sm">
+                    Reserve
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow justify-between bg-surface-container-lowest">
+                <div>
+                  <div className="flex items-baseline justify-between mb-2 gap-3">
+                    <h3 className="font-headline-sm text-headline-sm text-on-surface">
+                      {piece.title}
+                    </h3>
+                    <span className="font-title-md text-title-md text-on-surface font-semibold shrink-0">
+                      {piece.price}
+                    </span>
+                  </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                    {piece.description}
+                  </p>
+                </div>
+                <div className="pt-4 bg-surface-container-low/50 -mx-6 -mb-6 px-6 py-3 flex items-center justify-between">
+                  <span className="font-label-caps text-[10px] text-outline uppercase tracking-[0.12em]">
+                    {piece.caseInfo}
+                  </span>
+                  <span
+                    className={`font-label-caps text-[10px] uppercase ${piece.statusClass}`}
+                  >
+                    {piece.status}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <Link
+            className="inline-flex items-center gap-2 font-label-caps text-label-caps uppercase tracking-[0.16em] text-on-surface hover:text-secondary transition-colors pb-1"
+            href="/product"
+          >
+            <span>Explore All 14 Manufacture References</span>
+            <span className="material-symbols-outlined text-[16px]">
+              north_east
+            </span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Craftsmanship() {
+  return (
+    <section className="w-full bg-surface-container-high py-space-xl">
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+          <div className="lg:col-span-6 relative">
+            <div className="relative w-full aspect-[5/4] bg-surface shadow-md overflow-hidden">
+              <Image
+                src={ASSETS.craftsmanship}
+                alt="Intense close-up photograph of a master Swiss watchmaker working under a warm bench lamp with loupe ocular"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-primary text-on-primary p-6 shadow-xl z-10">
+              <span className="font-headline-xl text-[44px] leading-none text-secondary-fixed block mb-1">
+                58h
+              </span>
+              <p className="font-body-sm text-[12px] text-inverse-primary leading-relaxed">
+                Required hand-chamfering and anglage per Calibre 104 movement
+                before assembly.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 flex flex-col justify-center lg:pl-space-md mt-10 lg:mt-0">
+            <span className="font-label-caps text-label-caps uppercase tracking-[0.16em] text-secondary block mb-3">
+              Manufacture Purity
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">
+              The Intolerance of Imperfection.
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed mb-8">
+              Every Horologe GenÃ¨ve escapement is shaped by hand using
+              traditional boxwood laps and gentian wood pegs. We believe true
+              luxury does not shout; it resounds in the quiet accuracy of
+              internal bevels no client may ever see without a 10x ocular loupe.
+            </p>
+            <div className="space-y-4">
+              {PILLARS.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="p-4 bg-surface flex items-start gap-4 shadow-sm"
+                >
+                  <span className="material-symbols-outlined text-secondary text-[24px] mt-0.5">
+                    {pillar.icon}
+                  </span>
+                  <div>
+                    <h4 className="font-title-md text-title-md text-on-surface mb-1">
+                      {pillar.title}
+                    </h4>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">
+                      {pillar.body}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  return (
+    <section className="w-full bg-surface py-space-xl">
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          {SERVICES.map((service) => (
+            <div
+              key={service.title}
+              className="p-6 bg-surface-container-lowest flex flex-col items-start shadow-sm"
+            >
+              <div className="w-12 h-12 bg-surface-container flex items-center justify-center mb-4">
+                <span className="material-symbols-outlined text-on-surface text-[22px]">
+                  {service.icon}
+                </span>
+              </div>
+              <h3 className="font-headline-sm text-[18px] text-on-surface mb-2">
+                {service.title}
+              </h3>
+              <p className="font-body-sm text-body-sm text-on-surface-variant">
+                {service.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Concierge() {
+  return (
+    <section
+      id="concierge"
+      className="w-full bg-surface-container-lowest py-space-xl"
+    >
+      <div className="max-w-[1440px] mx-auto px-margin md:px-margin-desktop">
+        <div className="p-8 md:p-14 bg-surface-container flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">
+          <div className="max-w-xl">
+            <span className="font-label-caps text-label-caps uppercase tracking-[0.18em] text-secondary block mb-2">
+              Private Consultation
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">
+              Commission a Unique Piece
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant">
+              Speak directly with our Master Horologist regarding bespoke
+              hand-engraved casebacks, custom dial enameling, and personalized
+              movement bridge monograms.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+            <Link
+              className="px-8 py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.14em] text-center hover:bg-secondary transition-colors"
+              href="/login"
+            >
+              Inquire with Concierge
+            </Link>
+            <Link
+              className="px-8 py-4 bg-surface text-on-surface font-label-caps text-label-caps uppercase tracking-[0.14em] text-center hover:bg-surface-container-high transition-colors shadow-sm"
+              href="/product"
+            >
+              View Bespoke Archive
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white text-gray-900">
-        {/* Hero Section */}
-        <section className="relative h-[80vh] md:h-screen flex items-center justify-center text-white overflow-hidden">
-          <Image
-            src="/stitch/hero-bg.jpg"
-            alt="Horologe Genève Hero"
-            fill
-            priority
-            sizes="100vw"
-            className="z-0 object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <div className="relative z-20 text-center p-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight leading-tight">
-              Horologe Genève
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 font-light">
-              The Art of Time, Reimagined.
-            </p>
-            <Link href="/product" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300">
-              Discover Our Collection
-            </Link>
-          </div>
-        </section>
-
-        {/* Collection Overview Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 tracking-tight leading-tight">
-              Our Exquisite Collections
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Example Collection Card 1 */}
-              <div className="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                <Image
-                  src="/stitch/collection-1.jpg"
-                  alt="Collection 1"
-                  width={500}
-                  height={350}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">The Heritage Series</h3>
-                  <p className="text-gray-700 mb-4">Timeless elegance inspired by classic designs.</p>
-                  <Link href="/collection/heritage" className="text-blue-600 hover:underline">
-                    View Collection
-                  </Link>
-                </div>
-              </div>
-              {/* Example Collection Card 2 */}
-              <div className="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                <Image
-                  src="/stitch/collection-2.jpg"
-                  alt="Collection 2"
-                  width={500}
-                  height={350}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">Modern Chronographs</h3>
-                  <p className="text-gray-700 mb-4">Precision and performance for the contemporary adventurer.</p>
-                  <Link href="/collection/modern" className="text-blue-600 hover:underline">
-                    View Collection
-                  </Link>
-                </div>
-              </div>
-              {/* Example Collection Card 3 */}
-              <div className="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                <Image
-                  src="/stitch/collection-3.jpg"
-                  alt="Collection 3"
-                  width={500}
-                  height={350}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">Limited Editions</h3>
-                  <p className="text-gray-700 mb-4">Exclusive pieces for the discerning collector.</p>
-                  <Link href="/collection/limited" className="text-blue-600 hover:underline">
-                    View Collection
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Craftsmanship Section */}
-        <section className="py-16 md:py-24 bg-gray-800 text-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 tracking-tight leading-tight">
-              Unrivaled Craftsmanship
-            </h2>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
-              At Horologe Genève, every timepiece is a testament to centuries of Swiss watchmaking tradition, combined with cutting-edge innovation. Our master artisans meticulously craft each detail, ensuring unparalleled precision and enduring beauty.
-            </p>
-            <Link href="/about" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300">
-              Learn More About Our Heritage
-            </Link>
-          </div>
-        </section>
-
-        {/* Call to Action / Newsletter Signup */}
-        <section className="py-16 md:py-24 bg-white text-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">
-              Stay Informed
-            </h2>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-700">
-              Join our newsletter for exclusive updates, new collection launches, and special events.
-            </p>
-            <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
-              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-              <input
-                id="newsletter-email"
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-grow px-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-900"
-                aria-label="Email address for newsletter"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-gray-900 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-700 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </section>
-
-        {/* FAQ Section (new) */}
-        <FAQSection />
-
+      <main className="w-full pt-20 md:pt-[7.25rem] bg-background min-h-screen">
+        <div className="flex flex-col w-full">
+          <Hero />
+          <PressBar />
+          <Collection />
+          <Craftsmanship />
+          <Services />
+          <Concierge />
+        </div>
       </main>
       <Footer />
     </>
