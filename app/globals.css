@@ -153,3 +153,23 @@ body {
   line-height: 1;
   vertical-align: middle;
 }
+
+/* Small global utilities used by components such as the FAQ */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* FAQ-specific tokens (lightweight additions that rely on existing design tokens) */
+:root {
+  --faq-accent: var(--color-secondary);
+  --faq-bg: var(--color-surface-container-low);
+  --faq-heading-color: var(--color-on-surface);
+}
