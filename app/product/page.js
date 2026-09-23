@@ -470,8 +470,8 @@ export default function ProductPage() {
                     <p className="font-body-sm text-body-sm">
                       From{" "}
                       <strong className="text-on-surface font-medium">
-                        $
-                        {Math.round(selectedMetal.price / 12).toLocaleString(
+                        ${
+                        Math.round(selectedMetal.price / 12).toLocaleString(
                           "en-US",
                         )}
                         /mo
@@ -491,7 +491,7 @@ export default function ProductPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <label className="font-label-caps text-label-caps uppercase tracking-[0.14em] text-on-surface">
-                      Case Metal:{" "}
+                      Case Metal: {" "}
                       <span className="text-on-surface font-semibold">
                         {selectedMetal.label}
                       </span>
@@ -543,7 +543,7 @@ export default function ProductPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <label className="font-label-caps text-label-caps uppercase tracking-[0.14em] text-on-surface">
-                      Strap Attachment:{" "}
+                      Strap Attachment: {" "}
                       <span className="font-semibold text-on-surface">
                         {selectedStrap.label}
                       </span>
@@ -972,6 +972,31 @@ export default function ProductPage() {
           </section>
         </div>
       </main>
+
+      {/* Product page - promotional banner placed immediately above Footer */}
+      <section className="w-full bg-surface text-on-surface py-space-xl px-margin md:px-margin-desktop">
+        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex-1">
+            <h2 className="font-headline-lg text-headline-lg text-on-surface font-normal">
+              Discover the Atelier Collection
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant mt-2">
+              Reserve your piece from our limited series or explore bespoke finishes at the Maison.
+            </p>
+          </div>
+
+          <div className="mt-4 md:mt-0">
+            <Link
+              href="/collections"
+              className="inline-flex items-center bg-secondary text-on-secondary py-3.5 px-6 font-label-caps text-label-caps uppercase tracking-[0.18em] hover:bg-secondary-fixed-dim transition-colors"
+              aria-label="Explore Collections"
+            >
+              Explore Collections
+              <span className="material-symbols-outlined text-[16px] ml-2">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </>
