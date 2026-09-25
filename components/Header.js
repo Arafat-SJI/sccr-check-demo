@@ -95,7 +95,7 @@ export default function Header() {
             </span>
           </Link>
           <div className="h-4 w-px bg-surface-container-high mx-1 hidden sm:block" />
-          <Link href="/login" className="flex items-center gap-2 group pl-1">
+          <Link href="/profile" className="flex items-center gap-2 group pl-1">
             <Image
               src="/stitch/profile.jpg"
               alt="Profile"
