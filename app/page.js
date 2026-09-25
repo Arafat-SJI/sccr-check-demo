@@ -1,8 +1,7 @@
- import Image from "next/image";
-import Link from "next/link";
+ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FAQSection from "@/components/FAQSection";
+import Image from "next/image";
+import Link from "next/link";
 
 const ASSETS = {
   heroWatch: "/stitch/hero-watch.jpg",
@@ -495,7 +494,6 @@ export default function Home() {
           <Craftsmanship />
           <Services />
           <Concierge />
-          <FAQSection />
         </div>
       </main>
       <Footer />
