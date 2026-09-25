@@ -14,6 +14,18 @@ export default function FAQItem({ id, question, answer }) {
     setMaxHeight(expanded ? `${contentRef.current.scrollHeight}px` : "0px");
   }, [expanded]);
 
+  // Keep the animated height accurate when viewport resizes while expanded
+  useEffect(() => {
+    function handleResize() {
+      if (!contentRef.current) return;
+      if (expanded) {
+        setMaxHeight(`${contentRef.current.scrollHeight}px`);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [expanded]);
+
   function toggle() {
     setExpanded((v) => !v);
   }

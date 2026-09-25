@@ -34,9 +34,12 @@ const faqData = [
 
 export default function FAQSection() {
   return (
-    <section className={styles.faqSection} aria-labelledby="faq-heading">
+    <section id="faq" className={styles.faqSection} aria-labelledby="faq-heading">
       <div className={styles.inner}>
         <div className={styles.header}>
+          <span className="font-label-caps text-label-caps uppercase tracking-[0.16em] text-secondary block mb-2">
+            Support & Care
+          </span>
           <h2 id="faq-heading" className={styles.title}>
             Frequently Asked Questions
           </h2>
