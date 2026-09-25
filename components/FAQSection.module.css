@@ -133,3 +133,29 @@
     padding-bottom: 0.875rem;
   }
 }
+
+/* Desktop/tablet alignment to match Horologe margins */
+@media (min-width: 768px) {
+  .inner {
+    padding-left: var(--spacing-margin-tablet);
+    padding-right: var(--spacing-margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding-left: var(--spacing-margin-desktop);
+    padding-right: var(--spacing-margin-desktop);
+  }
+}
+
+/* Accessible focus and subtle hover states for questions */
+.questionButton:hover {
+  background: var(--color-surface-container-low, #f3f4f3);
+}
+
+.questionButton:focus-visible {
+  outline: 2px solid var(--color-secondary, #725b38);
+  outline-offset: 2px;
+  background: var(--color-surface-container-low, #f3f4f3);
+}
